@@ -8,6 +8,11 @@ const links = [
   { href: '#experience', label: 'Experience' },
   { href: '#blog', label: 'Blog' },
 ];
+
+const mobileLinks = [
+  ...links,
+  { href: '#education', label: 'Education' },
+];
 ---
 
 <header class="border-b border-ink/5 bg-paper/80 backdrop-blur sticky top-0 z-40">
@@ -15,6 +20,8 @@ const links = [
     <a href="/" class="text-sm font-medium tracking-tight">
       {profile.name}
     </a>
+
+    <!-- Desktop nav -->
     <ul class="hidden md:flex items-center gap-7 text-sm text-ink-muted">
       {
         links.map((link) => (
@@ -26,11 +33,61 @@ const links = [
         ))
       }
     </ul>
-    <a
-      href={profile.resume}
-      class="text-sm font-medium text-accent hover:text-accent-hover"
-    >
-      Résumé →
-    </a>
+
+    <!-- Resume CTA (desktop + mobile) -->
+    <div class="flex items-center gap-4">
+      <a
+        href={profile.resume}
+        class="text-sm font-medium text-accent hover:text-accent-hover hidden md:block"
+      >
+        Résumé →
+      </a>
+
+      <!-- Hamburger button (mobile only) -->
+      <button
+        id="mobile-menu-toggle"
+        class="md:hidden p-2 text-ink-muted hover:text-ink transition-colors"
+        aria-label="Toggle navigation menu"
+      >
+        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+          <line x1="3" y1="6" x2="21" y2="6"></line>
+          <line x1="3" y1="12" x2="21" y2="12"></line>
+          <line x1="3" y1="18" x2="21" y2="18"></line>
+        </svg>
+      </button>
+    </div>
   </nav>
+
+  <!-- Mobile dropdown menu -->
+  <div id="mobile-menu" class="hidden md:hidden border-t border-ink/5 bg-paper">
+    <ul class="container-page py-2 flex flex-col gap-1">
+      {
+        mobileLinks.map((link) => (
+          <li>
+            <a
+              href={link.href}
+              class="block px-4 py-2 text-sm text-ink-muted hover:text-ink hover:bg-paper-alt transition-colors rounded"
+            >
+              {link.label}
+            </a>
+          </li>
+        ))
+      }
+      <li class="px-4">
+        <a
+          href={profile.resume}
+          class="block py-2 text-sm font-medium text-accent hover:text-accent-hover"
+        >
+          Résumé →
+        </a>
+      </li>
+    </ul>
+  </div>
 </header>
+
+<script>
+  document.getElementById('mobile-menu-toggle').addEventListener('click', function() {
+    const menu = document.getElementById('mobile-menu');
+    menu.classList.toggle('hidden');
+  });
+</script>
