@@ -1,0 +1,1 @@
+Really need to have one source of truth here for files. Like /db as a github folder then link all the related documents or even mirror jesse-anderson.github.io or CF.

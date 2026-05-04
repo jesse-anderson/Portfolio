@@ -1,0 +1,51 @@
+---
+import { fetchLatestPosts, BLOG_URL } from '../utils/blog';
+
+const posts = await fetchLatestPosts(3);
+---
+
+{
+  posts.length === 0 ? (
+    <p class="text-sm text-ink-muted">
+      The blog listing could not be loaded at build time. Read the full archive at{' '}
+      <a href={BLOG_URL} target="_blank" rel="noopener noreferrer" class="link-underline">
+        blog.jesse-anderson.net ↗
+      </a>
+    </p>
+  ) : (
+    <>
+      <ul>
+        {posts.map((post) => (
+          <li class="border-t border-ink/10 py-5 first:border-t-0">
+            <a
+              href={post.url}
+              target="_blank"
+              rel="noopener noreferrer"
+              class="block group"
+            >
+              <div class="flex items-baseline gap-x-4 gap-y-1 flex-wrap">
+                {post.date && (
+                  <p class="text-xs font-mono text-ink-subtle shrink-0">{post.date}</p>
+                )}
+                <h3 class="text-base font-semibold text-ink group-hover:text-accent transition-colors">
+                  {post.title} <span aria-hidden="true">↗</span>
+                </h3>
+              </div>
+              {post.description && (
+                <p class="mt-2 text-sm text-ink-muted leading-relaxed line-clamp-2 max-w-prose">
+                  {post.description}
+                </p>
+              )}
+            </a>
+          </li>
+        ))}
+      </ul>
+      <p class="mt-6 text-sm text-ink-subtle">
+        Full archive at{' '}
+        <a href={BLOG_URL} target="_blank" rel="noopener noreferrer" class="link-underline">
+          blog.jesse-anderson.net ↗
+        </a>
+      </p>
+    </>
+  )
+}

@@ -1,0 +1,44 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  html {
+    scroll-behavior: smooth;
+  }
+
+  body {
+    @apply bg-paper text-ink antialiased;
+    font-feature-settings: 'cv11', 'ss01';
+  }
+
+  :focus-visible {
+    @apply outline-2 outline-offset-2 outline-accent;
+  }
+}
+
+@layer components {
+  .container-page {
+    @apply mx-auto w-full max-w-page px-6 sm:px-8 lg:px-12;
+  }
+
+  .link-underline {
+    @apply underline decoration-1 underline-offset-4 decoration-ink/30 hover:decoration-accent transition-colors;
+  }
+
+  .domain-toggle {
+    @apply transition-transform duration-200 ease-out;
+  }
+
+  details[open] > summary .domain-toggle {
+    transform: rotate(90deg);
+  }
+
+  details > summary {
+    list-style: none;
+  }
+
+  details > summary::-webkit-details-marker {
+    display: none;
+  }
+}

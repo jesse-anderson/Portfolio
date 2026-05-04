@@ -1,0 +1,146 @@
+---
+import { getCollection } from 'astro:content';
+
+import Layout from '../layouts/Layout.astro';
+import Nav from '../components/Nav.astro';
+import Hero from '../components/Hero.astro';
+import Section from '../components/Section.astro';
+import FeaturedCard from '../components/FeaturedCard.astro';
+import ProjectCard from '../components/ProjectCard.astro';
+import PublicationItem from '../components/PublicationItem.astro';
+import ExperienceItem from '../components/ExperienceItem.astro';
+import EducationItem from '../components/EducationItem.astro';
+import BlogList from '../components/BlogList.astro';
+import Footer from '../components/Footer.astro';
+
+import { fetchPublications, ORCID_URL } from '../utils/orcid';
+
+const projects = await getCollection('projects');
+const featured = projects
+  .filter((p) => p.data.featured)
+  .sort((a, b) => a.data.order - b.data.order);
+const nonFeatured = projects
+  .filter((p) => !p.data.featured)
+  .sort((a, b) => a.data.order - b.data.order);
+
+const domains = [
+  { key: 'software', label: 'Software & Web' },
+  { key: 'ml', label: 'Machine Learning' },
+  { key: 'pharma', label: 'Pharmacology & PK' },
+  { key: 'cheme', label: 'Chemical Engineering' },
+] as const;
+
+const domainIntros = {
+  pharma: "Academic work modeling drug absorption and toxicology. Not professional practice, but research into pharmacokinetics and dose-response relationships.",
+  cheme: "Chemical engineering projects: process modeling, reactor design, and environmental applications.",
+} as const;
+
+const projectsByDomain = domains.map((d) => ({
+  ...d,
+  items: nonFeatured.filter((p) => p.data.domain === d.key),
+}));
+
+const experience = (await getCollection('experience')).sort(
+  (a, b) => a.data.order - b.data.order
+);
+const education = (await getCollection('education')).sort(
+  (a, b) => a.data.order - b.data.order
+);
+
+const publications = await fetchPublications();
+---
+
+<Layout>
+  <Nav />
+  <main>
+    <Hero />
+
+    <Section
+      id="featured"
+      eyebrow="Featured work"
+      title="A few projects worth looking at first"
+      description="Three that show the most range. The full project list follows below."
+    >
+      {featured.map((project, i) => <FeaturedCard project={project} index={i} />)}
+    </Section>
+
+    <Section
+      id="projects"
+      eyebrow="All projects"
+      title="Everything else"
+      description="Grouped by domain. Click a heading to expand or collapse."
+    >
+      {
+        projectsByDomain.map((d, i) =>
+          d.items.length === 0 ? null : (
+            <details open={i === 0} class="border-t border-ink/10 first:border-t-0 py-4">
+              <summary class="cursor-pointer flex items-center justify-between gap-4 py-2 text-sm font-medium uppercase tracking-[0.18em] text-ink-subtle hover:text-ink transition-colors">
+                <span>
+                  {d.label}
+                  <span class="ml-2 normal-case tracking-normal text-xs text-ink-subtle/70">
+                    {d.items.length}
+                  </span>
+                </span>
+                <span class="domain-toggle text-xs font-mono text-ink-subtle" aria-hidden="true">▶</span>
+              </summary>
+              <div class="mt-2">
+                {domainIntros[d.key as keyof typeof domainIntros] && (
+                  <p class="mb-4 text-sm text-ink-muted">{domainIntros[d.key as keyof typeof domainIntros]}</p>
+                )}
+                {d.items.map((project) => <ProjectCard project={project} />)}
+              </div>
+            </details>
+          )
+        )
+      }
+    </Section>
+
+    <Section
+      id="publications"
+      eyebrow="Publications"
+      title="Peer-reviewed work"
+      description="Six co-authored papers in microscopy image analysis and computational biology. Pulled live from ORCID at build time."
+    >
+      {
+        publications.length === 0 ? (
+          <p class="text-sm text-ink-muted">
+            Publication metadata could not be loaded at build time. Full list on{' '}
+            <a href={ORCID_URL} target="_blank" rel="noopener noreferrer" class="link-underline">
+              ORCID ↗
+            </a>
+          </p>
+        ) : (
+          <>
+            <ul>
+              {publications.map((pub) => <PublicationItem pub={pub} />)}
+            </ul>
+            <p class="mt-6 text-sm text-ink-subtle">
+              Canonical list:{' '}
+              <a href={ORCID_URL} target="_blank" rel="noopener noreferrer" class="link-underline">
+                ORCID ↗
+              </a>
+            </p>
+          </>
+        )
+      }
+    </Section>
+
+    <Section id="experience" eyebrow="Experience" title="Where I've worked">
+      {experience.map((entry) => <ExperienceItem entry={entry} />)}
+    </Section>
+
+    <Section id="education" eyebrow="Education" title="Schools">
+      {education.map((entry) => <EducationItem entry={entry} />)}
+    </Section>
+
+    <Section
+      id="blog"
+      eyebrow="Writing"
+      title="From the technical blog"
+      description="Long-form writeups live at blog.jesse-anderson.net. The most recent three are pulled at build time."
+    >
+      <BlogList />
+    </Section>
+  </main>
+  <Footer />
+</Layout>

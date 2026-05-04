@@ -1,0 +1,26 @@
+---
+import type { Publication } from '../utils/orcid';
+
+interface Props {
+  pub: Publication;
+}
+
+const { pub } = Astro.props;
+---
+
+<li class="border-t border-ink/10 py-5">
+  <p class="text-base text-ink leading-snug">
+    {pub.url ? (
+      <a href={pub.url} target="_blank" rel="noopener noreferrer" class="link-underline">
+        {pub.title} <span aria-hidden="true">↗</span>
+      </a>
+    ) : (
+      pub.title
+    )}
+  </p>
+  <p class="mt-1 text-sm text-ink-subtle">
+    {pub.journal && <span class="italic">{pub.journal}</span>}
+    {pub.journal && pub.year && <span> · </span>}
+    {pub.year && <span class="font-mono">{pub.year}</span>}
+  </p>
+</li>
