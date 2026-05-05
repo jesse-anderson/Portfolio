@@ -34,43 +34,64 @@ function stripTags(s: string): string {
 
 export async function fetchLatestPosts(limit = 3): Promise<BlogPost[]> {
   try {
-    const response = await fetch(BLOG_BASE, {
+    const response = await fetch(`${BLOG_BASE}/archive`, {
       headers: { Accept: 'text/html' },
     });
+
     if (!response.ok) {
-      console.warn(`[blog] HTTP ${response.status} fetching listing`);
+      console.error(`[blog] HTTP ${response.status} fetching archive`);
       return [];
     }
+
     const buffer = await response.arrayBuffer();
     const html = new TextDecoder('utf-8').decode(buffer);
 
-    const postBlocks = html.match(/<div[^>]*class="[^"]*\bquarto-post\b[^"]*"[\s\S]*?(?=<div[^>]*class="[^"]*\bquarto-post\b|$)/g);
-    if (!postBlocks || postBlocks.length === 0) return [];
+    // Parse table rows from the archive listing (rows with data-index attribute)
+    // Each row has: <tr data-index="N"...><td><span class="listing-image"><img src="..."></span></td>
+    //              <td><span class="listing-date">...</span></td>
+    //              <td><a href="..." class="title listing-title">...</a></td></tr>
+    const rowPattern = /<tr\s+data-index="[0-9]+"[^>]*>([\s\S]*?)<\/tr>/g;
+    const matches = [...html.matchAll(rowPattern)];
+
+    if (matches.length === 0) {
+      return [];
+    }
 
     const posts: BlogPost[] = [];
-    for (const block of postBlocks.slice(0, limit)) {
-      const titleMatch = block.match(/<h3[^>]*class="[^"]*listing-title[^"]*"[^>]*>\s*<a[^>]*href="([^"]+)"[^>]*>([\s\S]*?)<\/a>/);
+    for (let i = 0; i < Math.min(matches.length, limit); i++) {
+      const match = matches[i];
+      const rowHtml = match[1];
+
+      // Extract image from listing-image span
+      const imgMatch = rowHtml.match(/<img\s+src="([^"]+)"/);
+
+      // Extract date from listing-date span
+      const dateMatch = rowHtml.match(/class="listing-date">([\s\S]*?)<\/span>/);
+
+      // Extract title and URL from listing-title link - match the full <a> tag
+      const titleMatch = rowHtml.match(/<a\s+href="([^"]+)"[^>]*class="[^"]*listing-title[^"]*"[^>]*>([\s\S]*?)<\/a>/);
+
       if (!titleMatch) continue;
+
       const url = absolutize(titleMatch[1]);
       const title = decodeEntities(stripTags(titleMatch[2]));
-      if (!url || !title) continue;
 
-      const descMatch = block.match(/<div[^>]*class="[^"]*listing-description[^"]*"[^>]*>([\s\S]*?)<\/div>/);
-      const imgMatch = block.match(/<img[^>]+src="([^"]+)"/);
-      const dateMatch = block.match(/<div[^>]*class="[^"]*listing-date[^"]*"[^>]*>([\s\S]*?)<\/div>/);
+      if (!url || !title) {
+        continue;
+      }
 
       posts.push({
         title,
         url,
-        description: descMatch ? decodeEntities(stripTags(descMatch[1])).slice(0, 240) : undefined,
-        image: absolutize(imgMatch?.[1]),
+        description: undefined,
+        image: imgMatch ? absolutize(imgMatch[1]) : undefined,
         date: dateMatch ? decodeEntities(stripTags(dateMatch[1])) : undefined,
       });
     }
 
     return posts;
   } catch (err) {
-    console.warn('[blog] fetch failed', err);
+    console.error('[blog] fetch failed', err);
     return [];
   }
 }

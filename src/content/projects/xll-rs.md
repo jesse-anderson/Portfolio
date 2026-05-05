@@ -1,7 +1,7 @@
 ---
 title: xll-rs
 domain: software
-order: 10
+order: 9
 blurb: Rust runtime and support library for building native Excel XLL add-ins on Windows. Ships typed Rust functions as Excel cell formulas without ever touching the C XLL SDK, an import library, or a C compiler. Sits underneath `linreg-core`'s VBA/XLL bindings as the actual interop layer.
 techStack: [Rust, Excel, XLL, Windows, FFI]
 links:
