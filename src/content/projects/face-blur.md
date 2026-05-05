@@ -1,7 +1,7 @@
 ---
 title: Face Blur Tool
 domain: ml
-order: 21
+order: 10
 blurb: Browser-based face detection and anonymization tool. Uses real-time face detection to automatically blur faces in uploaded images for privacy protection.
 techStack: [JavaScript, TensorFlow.js, "Face Detection API", Canvas]
 links:

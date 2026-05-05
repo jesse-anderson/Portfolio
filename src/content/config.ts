@@ -15,6 +15,7 @@ const projects = defineCollection({
     domain: z.enum(['software', 'ml', 'pharma', 'cheme']),
     featured: z.boolean().default(false),
     order: z.number().default(100),
+    focus: z.string().optional(),
     blurb: z.string(),
     techStack: z.array(z.string()),
     image: z.string().optional(),

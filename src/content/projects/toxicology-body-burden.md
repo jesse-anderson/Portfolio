@@ -1,7 +1,7 @@
 ---
 title: Toxicology Body Burden
 domain: pharma
-order: 32
+order: 10
 blurb: Estimates total systemic load of a substance from a measured plasma concentration using volume-of-distribution models, with optional kinetic back-calculation to estimate exposure history.
 techStack: [JavaScript, Pharmacology, Toxicology, "Vd modeling"]
 links:

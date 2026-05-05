@@ -16,12 +16,16 @@ import Footer from '../components/Footer.astro';
 import { fetchPublications, ORCID_URL } from '../utils/orcid';
 
 const projects = await getCollection('projects');
+const sortProjects = (a: (typeof projects)[number], b: (typeof projects)[number]) =>
+  a.data.order - b.data.order || a.data.title.localeCompare(b.data.title);
+
 const featured = projects
   .filter((p) => p.data.featured)
-  .sort((a, b) => a.data.order - b.data.order);
+  .sort(sortProjects);
+const featuredDescription = `${featured.length} projects with the clearest proof of shipped systems. The full project list follows below.`;
 const nonFeatured = projects
   .filter((p) => !p.data.featured)
-  .sort((a, b) => a.data.order - b.data.order);
+  .sort(sortProjects);
 
 const domains = [
   { key: 'software', label: 'Software & Web' },
@@ -59,7 +63,7 @@ const publications = await fetchPublications();
       id="featured"
       eyebrow="Featured work"
       title="A few projects worth looking at first"
-      description="Three that show the most range. The full project list follows below."
+      description={featuredDescription}
     >
       {featured.map((project, i) => <FeaturedCard project={project} index={i} />)}
     </Section>

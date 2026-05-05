@@ -1,7 +1,7 @@
 ---
 title: Token Throughput Visualizer
 domain: ml
-order: 21
+order: 15
 blurb: Real-time visualization of LLM token generation rates. Tracks and displays tokens-per-second throughput during inference, helping developers understand model performance characteristics.
 techStack: [JavaScript, Canvas, "LLM APIs"]
 links:

@@ -1,7 +1,7 @@
 ---
 title: Smog Modeling in LA
 domain: cheme
-order: 41
+order: 5
 blurb: Reactor-engineering model of smog accumulation and depletion across the Los Angeles basin. CSTR-style mass balances on key precursors solved in MATLAB.
 techStack: [MATLAB, Reaction Engineering]
 image: /images/smogModel.jpg

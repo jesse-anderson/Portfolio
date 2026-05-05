@@ -1,11 +1,15 @@
 ---
-title: Oak Park Crime Tracker
+title: Oak Park Crime Data Pipeline & Map
 domain: software
 featured: true
-order: 2
-blurb: A self-hosted civic data project for Oak Park, IL. Daily ETL pipeline, deploys a static web app to GitHub Pages, and lets the browser query the dataset directly via DuckDB-WASM. NLP across incident descriptions surfaces patterns by type and location.
+order: 5
+focus: Data Engineering
+blurb: >-
+  Nightly Raspberry Pi ETL for Oak Park incident reports: ingest public data,
+  normalize fields, geocode incidents, publish Parquet, and serve a static map
+  queried locally with DuckDB-WASM.
 techStack: [Python, DuckDB-WASM, Raspberry Pi, ETL, GitHub Pages, NLP, Folium]
-image: /images/OP-Crime.jpg
+image: /images/OP-Crime-Map.jpg
 imageAlt: Oak Park crime tracker map
 links:
   - label: Live site
@@ -14,4 +18,6 @@ links:
     url: https://blog.jesse-anderson.net/posts/OP-Crime-Documentation/
 ---
 
-Oak Park publishes incident data, but no spatial reporting layer exists for residents. This fills the gap. A Raspberry Pi runs the ETL nightly: pull the latest dataset, normalize, geocode, and commit the parquet artifact to the repo. The site itself is fully static, so the browser pulls a parquet file and runs SQL against it via DuckDB-WASM. No backend, no hosting cost, queries are instant. NLP passes over incident narratives produce category and location clusters used in the dashboard view.
+Oak Park publishes incident data, but residents do not get a useful spatial reporting layer. This fills that gap without a server: nightly ETL pulls the latest source data, normalizes fields, geocodes incidents, and publishes a Parquet artifact.
+
+The app itself is static. The browser downloads the dataset and runs SQL locally through DuckDB-WASM, so hosting stays simple and cheap while still supporting fast map filtering and exploration. NLP passes over incident narratives feed the companion dashboard.

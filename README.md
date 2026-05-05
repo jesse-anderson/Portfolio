@@ -22,6 +22,11 @@ npm run preview  # serve dist/ locally
 
 Node 18+ required (Astro 5). The repo was scaffolded against Node 22.
 
+If Astro reports impossible duplicate content IDs after editing Markdown,
+stop any running `astro dev` processes and delete the ignored `.astro/`
+cache directory before rebuilding. Stale dev watchers can repopulate that
+cache while `npm run build` is syncing content.
+
 ## Layout
 
 ```
@@ -50,6 +55,7 @@ should already be configured via the `CNAME` file.
 
 ## Status
 
-In active rebuild per `REWORK.md`. Hero is up; featured projects, full
-project list, publications, experience, education, and blog-listing
-sections are next.
+In active rebuild per `REWORK.md`. The current Astro version renders the
+hero, featured projects, full project list, publications, experience,
+education, and blog listing. Remaining work is copy polish, link checks,
+and richer case-study detail.

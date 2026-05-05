@@ -1,7 +1,7 @@
 ---
 title: DuckDB Playground
 domain: software
-order: 10
+order: 30
 blurb: Browser-based SQL playground using DuckDB-WASM. Write and execute SQL queries directly in the browser against sample datasets, no server required, all computation happens client-side via WebAssembly.
 techStack: [JavaScript, DuckDB-WASM, WebAssembly, SQL]
 links:

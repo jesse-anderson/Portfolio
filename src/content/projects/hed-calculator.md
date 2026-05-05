@@ -1,7 +1,7 @@
 ---
 title: HED Calculator
 domain: pharma
-order: 31
+order: 5
 blurb: Translates preclinical animal doses to Human Equivalent Doses via body-surface-area normalization. Standard FDA guidance scaling factors, with the inverse calculation (human → animal) for forward dose-finding work in study design.
 techStack: [JavaScript, Pharmacology, BSA]
 links:

@@ -1,7 +1,7 @@
 ---
 title: DBSCAN Visualizer
 domain: ml
-order: 20
+order: 0
 blurb: Interactive 2D/3D density-based clustering tool. Step-through animation of the DBSCAN algorithm, k-distance plots for parameter selection, and per-step state inspection. The clustering core is Rust compiled to WebAssembly and validated against scikit-learn's reference implementation point-for-point.
 techStack: [Rust, WebAssembly, JavaScript, DBSCAN, "Three.js", "scikit-learn"]
 image: images/dbscan_visualizer.png

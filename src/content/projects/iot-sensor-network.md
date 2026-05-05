@@ -2,9 +2,10 @@
 title: Industrial IoT Sensor Network
 domain: software
 featured: true
-order: 4
-blurb: ESP32 nodes running SCD41 (CO₂, temperature, humidity) and PMS7003 (particulate matter) sensors, pushing telemetry over MQTT to redundant SQL backends. Local queueing keeps data intact through network or database outages. Multi-month deployments running on the original hardware.
-techStack: [ESP32, MQTT, PostgreSQL, MongoDB, Python, SCD41, PMS7003, Raspberry Pi]
+order: 15
+focus: Embedded Systems
+blurb: Indoor air-quality monitors built around ESP32 nodes, SCD41 CO₂/temperature/humidity sensing, and PMS7003 particulate sensing. Readings are batched to multiple database/API targets; the original hardware has stayed in multi-month deployment.
+techStack: [ESP32, "HTTP APIs", PostgreSQL, MongoDB, Python, SCD41, PMS7003, Raspberry Pi]
 image: /images/Pi Sensor Flow Complete.png
 imageAlt: Pi sensor network architecture diagram
 links:
@@ -14,10 +15,14 @@ links:
     url: https://blog.jesse-anderson.net/posts/Pi-Sensor-Part-2/
   - label: ESP32 hardware writeup
     url: https://blog.jesse-anderson.net/posts/ESP32_Post_1/
+  - label: Reliability and soldering writeup
+    url: https://blog.jesse-anderson.net/posts/Soldering_ESP32/
   - label: SCD41 writeup
     url: https://blog.jesse-anderson.net/posts/SCD41/
   - label: PMS7003 writeup
     url: https://blog.jesse-anderson.net/posts/PMS7003/
 ---
 
-Long-running indoor air-quality monitoring that survives the hostile parts of "real" deployment. Each ESP32 node owns its own sensors, batches readings, and publishes over MQTT. Subscribers on a Pi fan the stream into PostgreSQL and MongoDB simultaneously, so a single backend going down does not lose data. If the broker itself disappears, the node queues locally and replays on reconnect. The blog posts cover the soldering, firmware, schematic decisions, and what broke during the multi-month soak.
+Long-running indoor air-quality monitoring that survives the hostile parts of real deployment. Each ESP32 node owns its sensors, batches readings, and posts telemetry to multiple storage targets rather than depending on one service.
+
+The deployed systems have run for months on the original hardware. The writeups cover firmware, sensor choices, soldering and power fixes, and the reliability issues that showed up once the monitor left the breadboard.

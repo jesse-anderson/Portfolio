@@ -1,7 +1,7 @@
 ---
 title: Python Clustering Toolbox
 domain: ml
-order: 23
+order: 25
 blurb: A small GUI for running Ripley's K/L, DBSCAN, and OPTICS on point data. Built originally for single-molecule localization microscopy work; useful anywhere you have 2D points and want to ask spatial-statistics questions about them.
 techStack: [Python, scikit-learn, DBSCAN, OPTICS, Ripley's K]
 image: /images/pythonClustering.JPG

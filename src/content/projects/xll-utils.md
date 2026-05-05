@@ -1,7 +1,7 @@
 ---
 title: xll-utils
 domain: software
-order: 10
+order: 25
 blurb: Build-time tooling for the xll-rs ecosystem. Parses PE/COFF metadata from a compiled XLL and validates that the exported function set matches what Excel will accept at load time. Catches the "looks fine, won't load" class of bugs before they hit production.
 techStack: [Rust, "PE/COFF", Excel, XLL]
 links:

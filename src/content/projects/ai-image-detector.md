@@ -1,7 +1,7 @@
 ---
 title: AI Image Detector
 domain: ml
-order: 21
+order: 5
 blurb: Frequency-domain analysis tool for distinguishing AI-generated images from photographs. Computes 2D FFTs of image patches and visualizes the noise spectrum; AI-generated images carry characteristic high-frequency signatures that diffusion-model post-processing does not fully erase.
 techStack: [JavaScript, WebAssembly, FFT, Canvas]
 image: images/AI_Image_Detector_FFT.png

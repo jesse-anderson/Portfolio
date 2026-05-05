@@ -1,7 +1,7 @@
 ---
 title: N-Back Trainer
 domain: software
-order: 12
+order: 35
 blurb: Browser-based working-memory trainer with adaptive difficulty. Single, dual, triple, and quad N-back modes across position, audio, shape, and color streams. The hot path runs in Rust compiled to WebAssembly. A Bayesian particle filter with 500 particles tracks per-stream skill in real time and adjusts the N level to keep accuracy near the 80% target. Desktop builds via Tauri; persistent history through IndexedDB; audio cues via Piper TTS.
 techStack: [Rust, WebAssembly, Tauri, IndexedDB, "Piper TTS", JavaScript]
 image: /images/nback.png

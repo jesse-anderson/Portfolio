@@ -1,7 +1,7 @@
 ---
 title: Yogurt CFU/g Estimator
 domain: cheme
-order: 42
+order: 10
 blurb: Fermentation-kinetics simulator for home and small-batch yogurt. Models S. thermophilus and L. bulgaricus co-culture growth with temperature-dependent rate constants, lag-plus-plateau kinetics, and pH feedback through a modified Gompertz acidification curve. Forecasts CFU/g and pH trajectory through fermentation and refrigerated post-acidification, with confidence envelopes anchored to published literature values.
 techStack: [JavaScript, "Fermentation kinetics", "Gompertz model", "Microbial growth"]
 image: /images/yogurt_cfu.png

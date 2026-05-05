@@ -21,9 +21,13 @@ function formatDate(iso?: string | null): string {
 const dateRange = current
   ? `${formatDate(startDate)} – Present`
   : `${formatDate(startDate)} – ${formatDate(endDate)}`;
+const articleClass = [
+  'grid md:grid-cols-12 gap-4 md:gap-8 border-t border-ink/10 py-8',
+  volunteer ? 'bg-paper-alt/30' : '',
+].filter(Boolean).join(' ');
 ---
 
-<article class="grid md:grid-cols-12 gap-4 md:gap-8 border-t border-ink/10 py-8" class={volunteer ? "bg-paper-alt/30" : ""}>
+<article class={articleClass}>
   <div class="md:col-span-3">
     <p class="text-xs font-mono text-ink-subtle">{dateRange}</p>
     {location && <p class="mt-1 text-xs text-ink-subtle">{location}</p>}

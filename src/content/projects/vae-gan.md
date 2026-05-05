@@ -1,7 +1,7 @@
 ---
 title: VAE-GAN on MNIST
 domain: ml
-order: 22
+order: 20
 blurb: A walk through training a Variational Autoencoder Generative Adversarial Network on MNIST, with a Denoising Autoencoder, plain VAE, and plain GAN built first as comparison points.
 techStack: [Python, PyTorch, VAE, GAN, Autoencoders]
 image: /images/GANOutput.png
