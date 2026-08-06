@@ -9,4 +9,4 @@ links:
     url: https://tools.jesse-anderson.net/tools/duckdb-playground.html
 ---
 
-A fully client-side SQL environment. Users can write queries against embedded sample datasets with all computation happening in the browser via DuckDB-WASM. No backend, no hosting costs — just pure WebAssembly-powered data querying.
+A fully client-side SQL environment. Users can write queries against embedded sample datasets with all computation happening in the browser via DuckDB-WASM, so there is no backend to run and nothing to pay for in hosting.

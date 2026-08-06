@@ -9,8 +9,6 @@ imageAlt: NBack brain training game.
 links:
   - label: nback.jesse-anderson.net
     url: https://nback.jesse-anderson.net
-  - label: GitHub
-    url: https://github.com/jesse-anderson/N-Back
 ---
 
 Built around signal-detection theory: the particle filter models each stream's discrimination ability separately, so an audio-strong / position-weak player gets a different N level on each modality. The about page covers the protocol, the limits of n-back research (improvement on the task is robust; far transfer is contested), and how the adaptive system works.

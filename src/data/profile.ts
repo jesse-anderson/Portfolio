@@ -18,6 +18,26 @@ export const profile = {
     { value: '6', label: 'peer-reviewed publications' },
     { value: 'Rust -> Wasm', label: 'systems that run in the browser' },
   ],
+  // Hand-maintained. Not derived from project frontmatter, because plenty of
+  // this was shipped at work or in coursework with no public artifact behind it.
+  tech: [
+    {
+      label: 'Languages',
+      items: ['Python', 'Rust', 'C++', 'C#', 'TypeScript', 'SQL', 'VBA', 'MATLAB'],
+    },
+    {
+      label: 'Data & ML',
+      items: ['DuckDB', 'SQLite', 'Parquet', 'PostgreSQL', 'scikit-learn', 'PyTorch', 'OpenCV'],
+    },
+    {
+      label: 'Systems & embedded',
+      items: ['WebAssembly', 'React', 'ESP32', 'Raspberry Pi'],
+    },
+    {
+      label: 'Cloud & infra',
+      items: ['AWS', 'GCP', 'Azure', 'Cloudflare', 'Docker'],
+    },
+  ],
   certifications: [
     {
       name: 'Data Structures & Algorithms Specialization',

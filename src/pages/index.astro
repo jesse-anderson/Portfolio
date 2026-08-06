@@ -4,6 +4,7 @@ import { getCollection } from 'astro:content';
 import Layout from '../layouts/Layout.astro';
 import Nav from '../components/Nav.astro';
 import Hero from '../components/Hero.astro';
+import TechSummary from '../components/TechSummary.astro';
 import Section from '../components/Section.astro';
 import FeaturedCard from '../components/FeaturedCard.astro';
 import ProjectCard from '../components/ProjectCard.astro';
@@ -59,6 +60,7 @@ const publications = await fetchPublications();
   <Nav />
   <main>
     <Hero />
+    <TechSummary />
 
     <Section
       id="featured"

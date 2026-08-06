@@ -11,6 +11,8 @@ links:
     url: https://github.com/jesse-anderson/Python/tree/main/Cluster-Analysis-with-GUI
   - label: OPTICS writeup
     url: https://blog.jesse-anderson.net/posts/OPTICSinPython/OPTICS.html
+  - label: Intro to OPTICS
+    url: https://blog.jesse-anderson.net/posts/OPTICSWriteup/index.html
 ---
 
 A teaching-and-research GUI: load points, pick an algorithm, sweep parameters. Wraps scikit-learn for DBSCAN and OPTICS, plus a custom Ripley's K/L implementation for spatial-statistics work.

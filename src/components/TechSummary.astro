@@ -1,0 +1,29 @@
+---
+import { profile } from '../data/profile';
+
+const { tech } = profile;
+---
+
+{tech.length > 0 && (
+  <section id="tech" class="container-page pb-8 scroll-mt-20">
+    <div class="border-t border-ink/10 pt-8">
+      <dl class="space-y-3">
+        {
+          tech.map((group) => (
+            <div class="grid sm:grid-cols-12 gap-x-6 gap-y-1">
+              <dt class="sm:col-span-3 text-xs uppercase tracking-wider text-ink-subtle pt-0.5">
+                {group.label}
+              </dt>
+              <dd class="sm:col-span-9">
+                <ul class="flex flex-wrap gap-x-3 gap-y-1 text-sm font-mono text-ink-muted">
+                  {group.items.map((item) => <li>{item}</li>)}
+                </ul>
+              </dd>
+            </div>
+          ))
+        }
+      </dl>
+      <p class="mt-5 text-xs text-ink-subtle">Selected rather than exhaustive.</p>
+    </div>
+  </section>
+)}

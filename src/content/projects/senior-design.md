@@ -1,5 +1,5 @@
 ---
-title: Senior Design — Bio-Process Plant
+title: "Senior Design: Bio-Process Plant"
 domain: cheme
 order: 0
 blurb: A bacterial 1,3-propanediol plant simulated end-to-end at ~60,000 tons/year throughput. Bioreactor sizing, downstream distillation train, utility integration, and full economic analysis. Won 1st place in the UIC ChemE division of the 2023 Engineering Expo.
