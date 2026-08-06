@@ -9,6 +9,9 @@ blurb: >-
   TypeScript/Vite dashboard behind Cloudflare Access with saved/applied tracking,
   notes, and scrape-health monitoring.
 techStack: [Python, SQLite, TypeScript, Vite, Cloudflare, PowerShell]
+links:
+  - label: Writeup
+    url: https://blog.jesse-anderson.net/posts/Chicago_Job_Scraper/blog_draft_chicagoland_job_scraper
 ---
 
 A private data product for managing a job search without handing personal workflow state to a third-party app. The pipeline runs locally on a schedule, keeps a durable SQLite history, exports static dashboard data, ranks roles against a profile, and deploys the built site to Cloudflare Pages behind Cloudflare Access.

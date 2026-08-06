@@ -18,6 +18,33 @@ export const profile = {
     { value: '6', label: 'peer-reviewed publications' },
     { value: 'Rust -> Wasm', label: 'systems that run in the browser' },
   ],
+  certifications: [
+    {
+      name: 'Data Structures & Algorithms Specialization',
+      issuer: 'UC San Diego',
+      url: 'https://coursera.org/verify/specialization/RPQ9G4ELF5UM',
+    },
+    {
+      name: 'Fundamentals of Accelerated Computing with CUDA C/C++',
+      issuer: 'NVIDIA',
+      url: 'https://learn.nvidia.com/certificates?id=yfRfq3QyS2Goy4x_wvhpnw',
+    },
+    {
+      name: 'Google Data Analytics Certificate',
+      issuer: 'Google',
+      url: 'https://coursera.org/share/933c75658043a804a5c0318aacd0acd7',
+    },
+    {
+      name: 'Google Project Management Certificate',
+      issuer: 'Google',
+      url: 'https://coursera.org/verify/professional-cert/FFBK533V7BPL',
+    },
+    {
+      name: 'Lean Six Sigma Yellow Belt',
+      issuer: 'UL Solutions',
+      url: null,
+    },
+  ],
   alumniOf: [
     { name: 'University of Illinois Urbana-Champaign', sameAs: 'https://illinois.edu' },
     { name: 'University of Illinois Chicago', sameAs: 'https://uic.edu' },

@@ -6,7 +6,7 @@ startDate: 2018-07
 endDate: 2018-08
 current: false
 volunteer: true
-order: 6
+order: 7
 techStack: ["Equipment Maintenance", "Generators", "Hazardous Waste"]
 bullets:
   - Volunteer to assist medical providers in providing care in remote areas to underserved populations.

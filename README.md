@@ -18,7 +18,12 @@ npm install
 npm run dev      # http://localhost:4321
 npm run build    # output to dist/
 npm run preview  # serve dist/ locally
+npm run assets   # regenerate favicon.ico, PNG icons, and the OG card
 ```
+
+`npm run assets` is not part of the build. Run it manually after changing the
+role, bio line, or highlights in `src/data/profile.ts`, since those strings are
+baked into the OpenGraph card, then commit the regenerated PNGs.
 
 Node 18+ required (Astro 5). The repo was scaffolded against Node 22.
 
@@ -33,13 +38,17 @@ cache while `npm run build` is syncing content.
 src/
   pages/index.astro     entry point
   layouts/Layout.astro  HTML shell, meta, OG tags, JSON-LD
-  components/           Nav, Hero, Footer (more to come)
-  data/profile.ts       single source of truth for name/contact/social
+  components/           Nav, Hero, cards, section chrome, Footer
+  content/              projects, experience, education collections
+  data/profile.ts       single source of truth for name/contact/social/certs
+  utils/                build-time ORCID and blog fetches
   styles/global.css     Tailwind directives + base layer
 public/
   CNAME                 portfolio.jesse-anderson.net
+  favicon.ico           generated from images/logo.png
   files/                resume.pdf, CV.pdf, seniorDesign.pdf, etc.
-  images/               project thumbnails
+  images/               project thumbnails, icons, og-card.png
+scripts/gen-assets.mjs  favicon + OG card generation (sharp)
 legacy/                 old ColorLib site, kept for reference during rebuild
 .github/workflows/      Pages deploy
 ```
@@ -55,7 +64,8 @@ should already be configured via the `CNAME` file.
 
 ## Status
 
-In active rebuild per `REWORK.md`. The current Astro version renders the
-hero, featured projects, full project list, publications, experience,
-education, and blog listing. Remaining work is copy polish, link checks,
-and richer case-study detail.
+The rebuild described in `REWORK.md` is complete. The site renders the hero,
+featured projects, the full project list grouped by domain, publications
+pulled from ORCID at build time, experience, education and certifications,
+and the three most recent blog posts. Remaining work is copy polish and
+richer case-study detail on the featured projects.

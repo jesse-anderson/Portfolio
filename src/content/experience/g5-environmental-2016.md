@@ -5,7 +5,7 @@ location: Chicago, IL
 startDate: 2016-06
 endDate: 2019-08
 current: false
-order: 5
+order: 6
 techStack: [CDL, "Site Management", "Safety Compliance"]
 bullets:
   - Served as project lead at job sites by ensuring completion of contract requirements by CDL team members.

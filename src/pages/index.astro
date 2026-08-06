@@ -10,6 +10,7 @@ import ProjectCard from '../components/ProjectCard.astro';
 import PublicationItem from '../components/PublicationItem.astro';
 import ExperienceItem from '../components/ExperienceItem.astro';
 import EducationItem from '../components/EducationItem.astro';
+import CertificationList from '../components/CertificationList.astro';
 import BlogList from '../components/BlogList.astro';
 import Footer from '../components/Footer.astro';
 
@@ -133,8 +134,9 @@ const publications = await fetchPublications();
       {experience.map((entry) => <ExperienceItem entry={entry} />)}
     </Section>
 
-    <Section id="education" eyebrow="Education" title="Schools">
+    <Section id="education" eyebrow="Education" title="Schools & certifications">
       {education.map((entry) => <EducationItem entry={entry} />)}
+      <CertificationList />
     </Section>
 
     <Section

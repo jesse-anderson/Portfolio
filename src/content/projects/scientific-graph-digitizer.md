@@ -4,7 +4,7 @@ domain: software
 order: 40
 blurb: Measure bar heights, marker positions, and curve points directly off rasterized scientific figures or PDFs without redrawing the chart. Crop to ROI, drop a baseline, place an axis tick, and the tool computes percent-of-control or absolute values across treatments. Started life as a Python/Tkinter desktop tool; the in-browser successor is faster and more featured.
 techStack: [JavaScript, WebAssembly, Canvas, Python, Tkinter, Pillow]
-image: images/sci_graph_compare.png
+image: /images/sci_graph_compare.png
 imageAlt: Scientific graph comparison tool screenshot showing Pre creatine post creatine difference.
 links:
   - label: Live (web version)

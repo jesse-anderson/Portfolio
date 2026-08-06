@@ -1,0 +1,31 @@
+---
+import { profile } from '../data/profile';
+
+const certifications = profile.certifications;
+---
+
+{certifications.length > 0 && (
+  <div class="mt-12">
+    <h3 class="text-xs font-medium uppercase tracking-[0.2em] text-ink-subtle">
+      Certifications
+    </h3>
+    <ul class="mt-4 grid sm:grid-cols-2 gap-x-8">
+      {
+        certifications.map((cert) => (
+          <li class="border-t border-ink/10 py-3">
+            <p class="text-sm text-ink">
+              {cert.url ? (
+                <a href={cert.url} target="_blank" rel="noopener noreferrer" class="link-underline">
+                  {cert.name} <span aria-hidden="true">↗</span>
+                </a>
+              ) : (
+                cert.name
+              )}
+            </p>
+            <p class="mt-0.5 text-xs text-ink-subtle">{cert.issuer}</p>
+          </li>
+        ))
+      }
+    </ul>
+  </div>
+)}

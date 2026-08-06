@@ -6,7 +6,7 @@ order: 15
 focus: Embedded Systems
 blurb: Indoor air-quality monitors built around ESP32 nodes, SCD41 CO₂/temperature/humidity sensing, and PMS7003 particulate sensing. Readings are batched to multiple database/API targets; the original hardware has stayed in multi-month deployment.
 techStack: [ESP32, "HTTP APIs", PostgreSQL, MongoDB, Python, SCD41, PMS7003, Raspberry Pi]
-image: /images/Pi Sensor Flow Complete.png
+image: /images/pi-sensor-flow.png
 imageAlt: Pi sensor network architecture diagram
 links:
   - label: Build series
