@@ -12,6 +12,6 @@ links:
     url: https://tools.jesse-anderson.net/tools/pdf-diff.html
 ---
 
-The browser version of a problem I automated at UL Solutions, where detecting changes between CAD revisions ran on Python, OpenCV, and PyMuPDF. Here pdf.js extracts the text layer, diff-match-patch produces the edit script, and the result is painted back onto the rendered page so a reviewer sees each change in position instead of as a list of line numbers.
+The browser version of a problem I automated at UL Solutions, where detecting changes between CAD revisions ran on Python, OpenCV, and PyMuPDF. Here pdf.js extracts the text layer, diff-match-patch produces the edit script, and the result is painted back onto the rendered page so a reviewer sees each change in position on the page.
 
-A pixel diff runs alongside the text diff to catch what the text layer misses, such as moved graphics or redrawn tables. The pdf.js build is pinned and loaded from its own file rather than an inline script, so the page can serve a content security policy without `unsafe-inline`.
+A pixel diff runs alongside the text diff to catch what the text layer misses, such as moved graphics or redrawn tables. The pdf.js build is pinned and loaded from its own file, which lets the page serve a content security policy without `unsafe-inline`.

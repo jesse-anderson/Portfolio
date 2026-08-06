@@ -11,4 +11,4 @@ links:
     url: https://tools.jesse-anderson.net/tools/yogurt-cfu-estimator.html
 ---
 
-Two-species growth model with temperature, time, and inoculum size as primary inputs, plus advanced controls for lag, growth rate, and plateau parameters. Outputs CFU/g over time, pH trajectory, and a post-acidification envelope for cold storage. Anchored against published growth curves rather than presented as a food-safety authority. The tool carries a disclaimer to that effect.
+Two-species growth model with temperature, time, and inoculum size as primary inputs, plus advanced controls for lag, growth rate, and plateau parameters. Outputs CFU/g over time, pH trajectory, and a post-acidification envelope for cold storage. Anchored against published growth curves. The tool carries a disclaimer about food-safety use.

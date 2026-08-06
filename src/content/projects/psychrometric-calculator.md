@@ -14,4 +14,4 @@ links:
 
 Built on PsychroLib for the ASHRAE property equations, with charting, process modeling, validation, and export split into separate modules. State is entered as dry-bulb plus relative humidity, with either atmospheric pressure or altitude closing the system.
 
-Processes are drawn on the chart rather than only tabulated: sensible heating and cooling, cooling with dehumidification, humidification, mixing two air streams, and a coil-leaving estimate. Saturation, RH lines, wet-bulb, enthalpy and specific-volume overlays, and a comfort zone toggle independently, so the chart can be stripped back to whatever the question needs.
+Processes are drawn on the chart: sensible heating and cooling, cooling with dehumidification, humidification, mixing two air streams, and a coil-leaving estimate. Saturation, RH lines, wet-bulb, enthalpy and specific-volume overlays, and a comfort zone each toggle independently.

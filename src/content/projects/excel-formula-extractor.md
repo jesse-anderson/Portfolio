@@ -14,4 +14,4 @@ links:
 
 Auditing an inherited workbook usually means clicking through sheets hunting for whatever breaks. This extracts the whole formula surface at once: formula cells per sheet, defined names, hidden sheets, and links out to other workbooks, which is the set that tends to matter before a migration or a rewrite.
 
-The external-references view exists because cross-workbook links are the ones that silently break when files move. The output states its own boundaries rather than failing quietly on workbook features the current version does not cover.
+The external-references view exists because cross-workbook links are the ones that silently break when files move. The output states its own boundaries for workbook features the current version does not cover.

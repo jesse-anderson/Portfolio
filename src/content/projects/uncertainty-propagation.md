@@ -14,4 +14,4 @@ links:
 
 Parses the entered formula into an AST, differentiates it symbolically with respect to each variable, and evaluates the standard first-order propagation. The contribution breakdown reports which input dominates the combined uncertainty, which is usually what someone actually needs before deciding where to spend effort on better measurements.
 
-A first-order expansion is an approximation, so the tool will run the same formula through a Monte Carlo simulation (normal or uniform, up to 500,000 samples) as an independent check rather than asking the user to trust the analytical result. Coverage factors from k = 1 to k = 3 are selectable, and the page documents its own scope and limits.
+A first-order expansion is an approximation, so the tool will run the same formula through a Monte Carlo simulation (normal or uniform, up to 500,000 samples) as an independent check on the analytical result. Coverage factors from k = 1 to k = 3 are selectable, and the page documents its own scope and limits.

@@ -11,4 +11,4 @@ links:
     url: https://tools.jesse-anderson.net/tools/ai-image-detector.html
 ---
 
-Drop in an image, get back its FFT and a per-region noise profile. Real photographs typically show smoothly distributed high-frequency content from sensor noise; many AI-generated images show banding, drop-offs, or unnaturally clean spectra. Not a definitive classifier, since no reliable one exists, but a fast first-pass forensic check.
+Drop in an image, get back its FFT and a per-region noise profile. Real photographs typically show smoothly distributed high-frequency content from sensor noise; many AI-generated images show banding, drop-offs, or unnaturally clean spectra. It works as a fast first-pass forensic check. No definitive classifier for this exists today.
