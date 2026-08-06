@@ -1,7 +1,7 @@
 ---
 title: Private Classic Forum
 domain: software
-order: 47
+order: 26
 blurb: >-
   Private, invite-only discussion board for a small trusted group, hosted
   entirely on Cloudflare: React/Vite SPA, Hono API on Workers, D1 (SQLite)

@@ -1,7 +1,7 @@
 ---
 title: Parquet Viewer
 domain: software
-order: 31
+order: 38
 blurb: >-
   Inspects Parquet files locally in the browser: schema, row-group and
   per-column compression statistics, footer metadata, and a paginated data

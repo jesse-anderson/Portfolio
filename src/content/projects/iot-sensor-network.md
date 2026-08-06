@@ -23,6 +23,10 @@ links:
     url: https://blog.jesse-anderson.net/posts/PMS7003/
 ---
 
-Long-running indoor air-quality monitoring that survives the hostile parts of real deployment. Each ESP32 node owns its sensors, batches readings, and posts telemetry to multiple storage targets rather than depending on one service.
+Indoor air-quality monitoring built to survive the parts of deployment that actually break things. Each node owns its sensors and posts telemetry to several independent targets rather than trusting one service: Google Sheets on a 5-second interval, ThingSpeak and MongoDB on 15.
 
-The deployed systems have run for months on the original hardware. The writeups cover firmware, sensor choices, soldering and power fixes, and the reliability issues that showed up once the monitor left the breadboard.
+The ESP32 was chosen over a Pi Pico for arithmetic throughput, roughly 5x on integers and 60 to 70x on floating point, which matters once calibration curves run on-device. Its 520 KB of SRAM is the binding constraint. Posting to Google Sheets originally overflowed the receive buffer on the response, so that path was rewritten against lower-level sockets, and a Vercel endpoint was abandoned outright after it could not be made to fit in memory.
+
+The failures that mattered were physical, not logical. The first build lost readings because a DHT11 would not hold contact against breadboard connections, so the assembly moved to soldered protoboard with the underside hot-glued for insulation. Power runs through an Adafruit Verter buck-boost module, which takes 3 to 12 V in and holds 5.2 V out at better than 90 percent efficiency across the usable range. A four-cell AA NiMH pack measured 28.2 hours of runtime, dropping to about 20 with the OLED lit.
+
+Sensor selection went through several rounds: PMS5003 then PMS7003 for particulate, MH-Z19 then SCD41 for CO₂, DHT22 and BME680 for temperature, humidity, and pressure. The original hardware has stayed in multi-month deployment, which is the only test of this kind of build that means anything.

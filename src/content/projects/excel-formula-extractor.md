@@ -1,7 +1,7 @@
 ---
 title: Excel Formula Extractor
 domain: software
-order: 26
+order: 34
 blurb: >-
   Pulls every formula, defined name, hidden sheet, and external workbook
   reference out of an Excel file in the browser, with search and an

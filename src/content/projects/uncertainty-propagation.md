@@ -1,7 +1,7 @@
 ---
 title: Uncertainty Propagation Calculator
 domain: software
-order: 33
+order: 40
 blurb: >-
   Propagates measurement error through an arbitrary formula using symbolic
   partial derivatives and a first-order Taylor expansion, with a per-variable

@@ -1,7 +1,7 @@
 ﻿---
 title: Private Job Intelligence Dashboard
 domain: software
-order: 46
+order: 28
 blurb: >-
   Private job-market dashboard for turning public postings into a daily triage
   workflow. A local Python pipeline collects and normalizes listings into SQLite,
